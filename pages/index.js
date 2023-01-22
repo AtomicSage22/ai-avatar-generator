@@ -41,12 +41,14 @@ const Home = () => {
       setRetry(0);
     }
 
+    const finalInput = input.replace(/aditi/gi, 'renvline');
+
     const response = await fetch('/api/generate', {
       method: 'POST',
       headers: {
         'Content-Type': 'image/jpeg',
       },
-      body: JSON.stringify({ input }),
+      body: JSON.stringify({ input: finalInput }),
     });
   
     const data = await response.json();
@@ -110,7 +112,7 @@ const Home = () => {
             <h1>Avatar Generator</h1>
           </div>
           <div className="header-subtitle">
-            <h2>Turn me into anything you can imagine, make sure to refer to me as "devomic" in the prompts</h2>
+            <h2>Turn aditi into anything you can imagine(yes, anything!), sky is the limit.</h2>
           </div>
             <div className="prompt-container">
               <input className="prompt-box" value={input} onChange={onChange} />

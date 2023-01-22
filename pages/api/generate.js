@@ -11,11 +11,12 @@ const generateAction = async (req, res) => {
     };
 
     const response = await fetch(
-        `https://api-inference.huggingface.co/models/AtomicSage20/devomic-stable-diffusion`,
+        `https://api-inference.huggingface.co/models/AtomicSage20/SD-on-Aditi`,
         {
           headers: {
             Authorization: `Bearer ${process.env.HF_AUTH_KEY}`,
             'Content-Type': 'application/json',
+            'x-use-cache': 'false'
           },
           method: 'POST',
           body: JSON.stringify({
